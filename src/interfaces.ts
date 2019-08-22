@@ -1,5 +1,4 @@
-import { ClientOptions } from 'minio';
+import { Client, ClientOptions } from 'minio';
 
-export interface IMinioModuleConfiguration extends ClientOptions {
-
-}
+export interface NestMinioModuleConfiguration extends ClientOptions {}
+export interface NestMinioClient extends Client {}
