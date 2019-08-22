@@ -1,16 +1,16 @@
 language: node_js
 node_js:
-  - stable
+- stable
 
 install:
-  - npm i -g typescript typings
-  - npm install
+- npm i -g typescript typings
+- npm install
 
 before_script:
-  - npm run build
+- npm run build
 
 script:
-  - npm test
+- npm test
 
 deploy:
   skip_cleanup: true
@@ -18,7 +18,8 @@ deploy:
 
   email: julien.sarazin@me.com
   api_key:
-    secure: Gvp1xSmkWfB/y15M/qCMc+qUOhWEnFMgVCxaUcXAdSuv+ugF0teOgv8tlBX+wrvX6IGG5Qie/3ol6CyMMlN8fdKYSxpK+Jg0gGrcLaHPTyRfv922Z+WQcq1c1NunbjWPrMzwSkitnwHLKxRt5EkZJvjUY+lojJ0zQgh8iFXdfRF7s6bZVIJ/g9tiFEHOcP731dQSE5r8m5S0GaAqCO3Seixc1tPOeppE6jcVUaqM9mpoUDMozONHIWmVU6sJPbSSEpnSrfHqtL2HI05YsqTtzpu1BSnP+VdpDpIjFO7+Zmbv0Gnils4l8pS1gfDYeX8zLwbItSz3MHSEGhns8XJPVrmkSzO189R/dT1nwIsfiosjRKr9hpVoQGMBwdVsKh9mL5LbCX153Cc2fJxwrzto7BmIoiWAlq/n+oQS6GkzAYfdvbDW6MUbUmKhqWuYNtSVF86FGNmglID+fHVYZUkDVCfUGh1Db+Y5If9YR5RRtLQAAxZ2JS0jDCl/C5Y29ZWb2LerCxEVVGkKPqRauQDJWJz4vQb5NmbCvQ3tCroFZVp/T1Tvf2kEKFGI25ebEz5dxMuQUBazaS3a9O/2pwRbo+QGNMq2TlD6rQCeWPfFzet/ouUJJxMgCAnEqC0EP8AsVfpIKbBbB8vHSKgQYcxrLTZ4cjmZpVvv0gf3FncPbNY=
+    secure: ePtWGPgvSVqLgDuDuqMP0cZ81aqkCn+8MOmXrMmLY9mUkpgXDHkgQdmwhfTsLfGLeQBqvVw7LsoOgyf2tEMlMN4sYZbz6XYPkVAnMHK4bjWb3L0z2MsYXEK5GUdQLnSBeV9FIczSJxXsUx5J9nl2Y2JIUsdd4iNo5ccb6FR0wFguqhasl+JpbKjlP4ztxnrqMm1aKwgRjHbf+25wtn08PqdMFHUko04x5ZoSGQhmT+zfFRv3LJp3Ie07NsG1JiwSigoUnxxA8Sya8lrfRLkCQClX+PxZXnr1zp2ZOv/dXxSSRa35PRsDqY/JGHzrEbTuhVLxuoeQvufJRTaTa6WRl4rabl163eWfBMwLNSmZKpMX5BW6qPWSeBoot/iVtZcDxqjTkMUh5JrXIKwEaTUjjCq7IPVTNVICHDiUiQzBiiZBTXEQIVua/unLU6D2wuqI0zzVVw7KiyxYTXw/1EAvEFKyQu8ErkV3krIPF+w4GDnPBUl49jVsAWrfh1um4FQr8tbKvwxe0FiGii1P5g6uFg0S3G/KB4Xs+e1iJ6jhdVNc0fvlKdJvXMzhHkgKEnZJ1MeeOHtkxYX29JEqHcij1hnpEWZxb7YgwEmmAvHIyxgT3ZtVGpYP/1Qg5DWbBYsFouKyCv3gz7WKwiCdLHOCKbSMQy+AeIZOeXZZSxKVdB4=
+
   on:
     tags: true
     repo: implicity-healthcare/nest-minio
