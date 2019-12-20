@@ -1,5 +1,5 @@
 import { DynamicModule, Global, Module } from '@nestjs/common';
-import { NestMinioClientProviderToken, NestMinioConfigurationProviderToken } from './constants';
+import { NestMinioClientProviderToken } from './constants';
 import { NestMinioClient, NestMinioModuleConfiguration } from './interfaces';
 import { Client } from 'minio';
 import { ConfigService } from '@nestjs/config';
@@ -9,23 +9,19 @@ import { ConfigService } from '@nestjs/config';
 export class NestMinioModule {
 
     static init(configuration?: NestMinioModuleConfiguration): DynamicModule {
-
-        const minioConfigurationProvider = {
-            provide: NestMinioConfigurationProviderToken,
-            useValue: (configService: ConfigService): NestMinioModuleConfiguration => configService.get<NestMinioModuleConfiguration>('NMinio', configuration),
-            inject: [ConfigService]
-        };
-
-        const minoClientProvider = {
+        const minioClientProvider = {
             provide: NestMinioClientProviderToken,
-            useFactory: (configuration: NestMinioModuleConfiguration): NestMinioClient => new Client(configuration),
-            inject: [NestMinioConfigurationProviderToken]
+            inject: [ConfigService],
+            useFactory: (configService: ConfigService): NestMinioClient => {
+                const options = configService.get<NestMinioModuleConfiguration>('NMinio', configuration);
+                return new Client(options);
+            }
         };
 
         return {
             module: NestMinioModule,
-            providers: [minoClientProvider],
-            exports: [minoClientProvider],
+            providers: [minioClientProvider],
+            exports: [minioClientProvider],
         };
     }
 }
