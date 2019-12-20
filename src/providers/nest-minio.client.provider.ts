@@ -1,4 +1,4 @@
-import { NestMinioClientToken } from '../constants';
+import { NestMinioClientToken, NestMinioConfigurationNamespace } from '../constants';
 import { ConfigService } from '@nestjs/config';
 import { NestMinioClient, NestMinioModuleConfiguration } from '../interfaces';
 import { Client } from 'minio';
@@ -9,9 +9,9 @@ export const NestMinioClientProvider = {
         ConfigService
     ],
     useFactory: (configService: ConfigService): NestMinioClient => {
-        const options = configService.get<NestMinioModuleConfiguration>('NMinio');
+        const options = configService.get<NestMinioModuleConfiguration>(NestMinioConfigurationNamespace);
         if (!options)
-            throw new Error('Missing configuration from @nestjs/config. Please register Nest-Minio configuration under the NMinio namespace');
+            throw new Error(`Missing configuration from @nestjs/config. Please register Nest-Minio configuration under the ${NestMinioConfigurationNamespace} namespace`);
 
         return new Client(options);
     }
