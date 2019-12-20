@@ -1,2 +1,1 @@
-export const NestMinioClientProviderToken = 'NestMinioClientProviderToken';
-export const NestMinioConfigurationProviderToken = 'NestMinioConfigurationProviderToken';
+export const NestMinioClientToken = 'NestMinioClientToken';
