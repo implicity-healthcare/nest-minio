@@ -1,4 +1,4 @@
 import { Inject } from '@nestjs/common';
-import { NestMinioClientProviderToken } from '../constants';
+import { NestMinioClientToken } from '../constants';
 
-export const Minio = () => Inject(NestMinioClientProviderToken);
+export const Minio = () => Inject(NestMinioClientToken);
