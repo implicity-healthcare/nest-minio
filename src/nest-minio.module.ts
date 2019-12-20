@@ -5,7 +5,11 @@ import { Client } from 'minio';
 import { ConfigService } from '@nestjs/config';
 
 @Global()
-@Module({})
+@Module({
+    imports: [
+        ConfigService,
+    ]
+})
 export class NestMinioModule {
 
     static init(configuration?: NestMinioModuleConfiguration): DynamicModule {
@@ -20,6 +24,9 @@ export class NestMinioModule {
 
         return {
             module: NestMinioModule,
+            imports: [
+                ConfigService,
+            ],
             providers: [minioClientProvider],
             exports: [minioClientProvider],
         };
